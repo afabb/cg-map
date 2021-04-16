@@ -1,0 +1,787 @@
+html,
+body {
+  font-family: 'Poppins';
+  padding: 0;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+}
+
+
+span.ms-helper ,
+.leaflet-pane.leaflet-popup-pane ,
+  autoPan: true
+input.ms-inv {
+    font-family: 'Poppins';
+}
+
+#map {
+  width: 100vw;
+  height: 100vh;
+  visibility: hidden;
+}
+
+h3 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+h4{
+
+	margin: 0;
+	color:#010101;
+	border-bottom: 1px solid #eeeeee;
+}
+
+h5 {
+  margin: 0;
+  font-size: 1.2em;
+  font-weight: normal;
+}
+
+h6 {
+  margin: 0;
+  font-size: 1.2em;
+}
+.ms-trigger {
+    /* display: none !important; */
+    height: 32px !important;
+    border-left: 1px solid #f4f4f4 !important;
+}
+
+.ms-res-item {
+    margin-top: 1px;
+}
+.ms-ctn .ms-sel-ctn input {
+  background: #f0f0f000;
+  height: 21px;
+}
+
+.ms-res-ctn.dropdown-menu {
+    /*border-top: 1px solid #f5f5f5;*/
+    padding-top: 14px;
+    padding-bottom: 10px;
+    margin-left: -4px;
+    padding-left: 10px;
+}
+
+.ms-res-ctn.dropdown-menu::-webkit-scrollbar {
+  width: 1em;
+  border-radius: 6px;
+}
+
+.ms-res-ctn.dropdown-menu::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.ms-res-ctn.dropdown-menu::-webkit-scrollbar-thumb {
+  background-color: #aaaaaa;
+}
+
+.intro-popup .leaflet-popup-tip-container {
+  width: 0;
+  height: 0;
+}
+
+.pointer {
+  cursor: pointer;
+}
+.filter {
+	font-family: 'Poppins';
+  font-size: 6;
+	position: absolute;
+	top: 8px;
+	left: 1em;
+	z-index: 999;
+	background: rgba(255, 255, 255,0.8);
+	width: 150px;
+	border-radius: 6px;
+	padding: .5em .25em;
+}
+
+
+.filter i.fa.fa-caret-down,
+.filter i.fa.fa-caret-up
+ {float: right;/* padding: 6px 2px; */}
+
+.leaflet-control-custom {
+  padding: 6px 8px;
+  background: red;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+  color: red;
+  border-radius: 6px;
+}
+
+.leaflet-control-geocoder {
+  z-index: 9999;
+}
+
+form {
+  margin-top: 2px;
+}
+
+.polygons-legend-scale {
+  margin-top: 4px;
+  padding-top: 7px;
+  border-top: dotted 3px #eee;
+}
+
+.polygons-legend-scale i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+}
+
+.leaflet-popup-content {
+  align-items: center;
+  min-width: 150px;
+  max-height: 250px;
+  padding: 12px;
+  padding-top: 5px;
+  padding-bottom: 12px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 2px;
+  margin-right: 2px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.leaflet-popup-content img {
+  width: 250px;
+  height: 100%;
+  align-items: center;
+  max-height: 250px;
+  margin-left: 15px;
+  margin-right: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+.leaflet-popup-content b {
+  font-size: 1.3em;
+  text-align: justify;
+}
+
+
+ol.bjqs-markers.h-centered {
+    display: none;
+}
+li.bjqs-prev a,
+li.bjqs-next a {
+    background: #2196f3;
+    padding: 8px 6px;
+    text-decoration: none;
+    color: white;
+    top: 45% !important;
+    font-size: 1em;
+    font-weight:bold;
+    border-radius: 1px;
+    /* left: -37px; */
+}
+
+.geojson-point-marker {
+  radius: 3;
+}
+/.loader,
+.loader:before,
+.loader:after {
+  background: #000;
+  -webkit-animation: load1 1s infinite ease-in-out;
+  animation: load1 1s infinite ease-in-out;
+  width: 1em;
+  height: 3em;
+}
+.loader:before,
+.loader:after {
+  position: absolute;
+  top: 0;
+  content: '';
+  border-radius: 6px;
+}
+.loader:before {
+  left: -1.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+  border-radius: 6px;
+}
+.loader {
+  color: #000;
+  /*text-indent: -9999em;*/
+  position: absolute;
+  left: 50vw;
+  top: 45vh;
+  font-size: 11px;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+  border-radius: 6px;
+}
+.loader h1{
+	position: relative;
+	top: 2em;
+	font-family: 'Poppins';
+	left: -1.5em;
+}
+.loader:after {
+  left: 1.5em;
+}
+@-webkit-keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
+}
+@keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
+}
+
+/* Technically there are two map titles, on the left and on the right,
+ * at all times. On a big screen, map title in the right column is not
+ * displayed. On a mobile device, title in the right column is shown with 0
+ * opacity, so that search, locate, and zoom buttons do not overlay the title,
+ * creating an effect as if the title is located on top, and not the left column.
+ */
+.leaflet-right .map-title { display: none; }
+
+@media only screen and (max-width: 480px) {
+  .leaflet-right .map-title {
+    display: block;
+    opacity: 0;
+  }
+
+  .leaflet-left .map-title {
+    width: 98%;
+  }
+}
+
+#mobile-intro-popup {
+  position: absolute;
+  bottom: 5vh;
+  left: 10vw;
+  width: 70vw;
+  z-index: 1000;
+  background: white;
+  padding: 1vh 5vw;
+  opacity: 0.9;
+  border: 5px #ddd solid;
+  border-radius: 6px;
+  font-family: 'Poppins';
+}
+
+#mobile-intro-popup p {
+  margin: 10px 0 10px 0;
+  max-height: 80vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#mobile-intro-popup-close {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 30px;
+  background: #bbb;
+  color: white;
+  font-size: 1.4em;
+  text-align: center;
+  border-radius: 6px;
+  opacity: 0.8;
+}
+
+#polygonSelect {
+  width: 100%;
+}
+
+.polygon-label {
+  position: absolute;
+  left: -15px;
+  color: #444;
+  font-weight: bold;
+  opacity: 0.9;
+  pointer-events: none !important;
+}
+
+.color-line {
+  display: inline-block;
+  vertical-align: middle;
+  height: 3px;
+  width: 20px;
+}
+
+.markers-legend-icon {
+  height: 12px;
+  vertical-align: middle;
+}
+
+.map-title {
+  margin-top: 0 !important;
+  margin-bottom: 10px;
+  max-width: 450px;
+}
+
+.leaflet-top.leaflet-left {
+  padding-top: 10px;
+}
+
+/* attributes related to the dropdown box and layer behind the search box*/
+.search_container{
+    position: absolute;
+    z-index: 401;
+    background: rgba(255, 255, 255,0.8);
+    color: #f1f1f1;
+    top: 0.5em;
+    right: 54px;
+    font-family: 'Poppins';
+    border-radius: 6px;
+}
+.ms-ctn .ms-sel-ctn input {
+  padding-left: 0px;
+  padding-right: 0px
+}
+input.ms-inv {
+    font-family: 'Poppins';
+}
+.filter p{
+  margin:0;
+}
+.group_elem{
+  padding-left:1em;
+}
+.group_title p {
+    padding: 1px;
+    margin: 2px 0px;
+    font-size: 0.8em;
+}
+.group_title input[type='checkbox']{
+  display:none;
+}
+.group_title p:hover{
+    background: #f4f4f4;
+
+}
+.group_title label {
+    padding-top: 8px;
+    padding-right: 44px;
+}
+
+/* Map Table */
+div.dataTables_scrollBody {
+  border: 0 !important;
+}
+
+div.dataTables_scrollHead {
+  color: #eee !important;
+}
+
+.dataTable * {
+  font-family: 'Poppins';
+  border: 0 !important;
+}
+
+div.dataTables_scrollHead table.display {
+  background-color: #444;
+  color: #eee;
+}
+.leaflet-control-locate.leaflet-bar.leaflet-control {
+    font-size: 0.8em;
+    top: 0em;
+    color: transparent;
+    border: 0px solid rgba(255, 255, 255,0.8);
+    border-radius: 6px;
+}
+
+select {
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.div-center {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+}
+
+span.legend-arrow {
+  color: rgb(238, 238, 238);
+  position: absolute;
+  right: 8px;
+  top: 5px;
+}
+
+span.legend-icon {
+  color: #bbb;
+  margin-right: 5px;
+}
+
+.ladder {
+  width: 180px;
+  margin-top: 0 !important;
+  overflow: hidden;
+}
+
+.ladder h6.minimize ~ div,
+.ladder h6.minimize ~ form {
+  display: none !important;
+}
+
+.ladder form, .ladder div {
+  display: block;
+}
+
+.leaflet-touch .leaflet-bar {
+    border: none;
+}
+
+
+/************************************/
+/* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 2px;
+  cursor: pointer;
+  font-size: 0.8em;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: #eee;
+  border-radius: 10%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: rgb(153,146,171);
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+/*.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+/*.container .checkmark:after {
+ 	top: 6px;
+ 	left: 6px;
+ 	width: 6px;
+ 	height: 6px;
+ 	border-radius: 90%;
+ 	background: #f7f7f7;
+}
+
+/************************************/
+
+
+.button {
+  display: inline-block;
+  margin-top: .1rem;
+  padding: 0.1rem .4rem;
+  border: none;
+  border-radius: 0.1875rem;
+  outline: none;
+  background-color: rgb(153,146,171);
+  color: white;
+  font-family: inherit;
+  font-size: .8em;
+  font-weight: 400;
+  line-height: 1.5rem;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: all 150ms ease-out;
+  transition: all 150ms ease-out;
+  float: right;
+}
+.button:focus, .button:hover {
+  background-color: #aaaaaa;
+}
+.button:active {
+  background-color: #aaaaaa;
+  box-shadow: 0 0 0 0.1875rem #aaaaaa, 0 0 0 0.175rem #aaaaaa;
+  -webkit-transition-duration: 1000ms;
+          transition-duration: 0ms;
+}
+
+p.msg_no_records {
+    background: #ff8585;
+    padding: 8px 0px;
+    color: white;
+    border-radius: 6px;
+    font-size: .8em;
+    margin-top: 1rem;
+    text-align: center;
+    display:none;
+}
+
+
+  footer {
+      position: absolute;
+      bottom: 0;
+      z-index: 999;
+      font-size: 0.7em;
+      width: 100%;
+      /* padding-top: 6px; */
+      /* padding-left: 6px; */
+  }
+
+  footer a,
+  footer a:visited {
+    color:black
+  }
+  footer a:hover{
+    color:blue;
+  }
+  footer p {
+      padding: 4px;
+      margin: 0;
+      margin-left: 1em;
+  }
+
+  footer,
+   .leaflet-control-attribution.leaflet-control{
+   background: transparent !important;
+  }
+
+
+@media only screen and (max-width: 412px) {
+  .filter{
+    top:0.5em;
+    left:8px;
+    visibility: collapse;
+    width:130px;
+    padding-left: 4px;
+    padding-right: 4px
+  }
+  .search_container{
+    width:181px;
+    right:8px;
+  }
+  .ms-ctn .ms-sel-ctn input {
+    padding-left: 0px;
+    padding-right: 0px
+  }
+  .ms-res-ctn.dropdown-menu{
+    width:145px;
+    padding-top: 6px;
+    padding-bottom: 2px;
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+  .ms-res-ctn.dropdown-menu::-webkit-scrollbar {
+    width:10px;
+  }
+  .leaflet-bar{
+    visibility: hidden;
+  }
+  .ms_search_layer{
+    visibility: hidden;
+  }
+  .ms_ctn_focus{
+    visibility: hidden;
+  }
+  .ms-trigger{
+    visibility: hidden;
+  }
+  .leaflet-fade-anim{
+    width: 150px;
+  }
+  .leaflet-popup-content {
+    max-width: 150px;
+    max-height: 200px;
+    overflow-y: scroll;
+  }
+  .leaflet-popup-content img {
+    width: 130px;
+    height: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  .leaflet-popup-content b {
+    font-size: 13px;
+    text-align: justify;
+  }
+
+  @media only screen and (max-width: 337px) {
+  .filter{
+    top:0.5em;
+    left:1px;
+    visibility: collapse;
+    width:130px;
+    padding-left: 1px;
+    padding-right: 1px
+  }
+  .search_container{
+    width:181px;
+    right:1px;
+  }
+  .ms-res-ctn.dropdown-menu{
+    width:145px;
+    padding-top: 6px;
+    padding-bottom: 2px;
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+  .ms-res-ctn.dropdown-menu::-webkit-scrollbar {
+    margin-right:2px;
+    width:7px;
+  }
+
+
+@media only screen and (max-width: 314px) {
+  .filter{
+    top:0.5em;
+    left:0px;
+    visibility: collapse;
+    width:100px;
+    padding-left: 0px;
+    padding-right: 0px
+  }
+  .search_container{
+    width:100px;
+    right:1px;
+  }
+  .group_elem.group_pr{
+    width: 80px;
+    font-size: 0.9em;
+    padding-left: 2px;
+    padding-right: 3px;
+  }
+  .group_elem.group_col{
+    width: 80px;
+    font-size: 0.9em;
+    padding-left: 2px;
+    padding-right: 3px;
+  }
+  .group_elem.group_sh{
+    width: 80px;
+    font-size: 0.9em;
+    padding-left: 2px;
+    padding-right: 3px;
+  }
+  .filter i.fa.fa-caret-down,
+  .filter i.fa.fa-caret-up
+   {visibility: hidden;
+  }
+  .filter .label.container{
+    width: 50px;
+  }
+
+  footer {
+      position: absolute;
+      bottom: 0;
+      z-index: 999;
+      font-size: 0.1em;
+  }
+@media only screen and (max-width: 200px) {
+.search_container{
+  visibility: hidden;
+}
+
+/* attempt to prevent landscape rotation to cause images to go outside the container
+var app = angular.module('rotationApp', []);
+
+app.controller('rotationCtrl', ['$scope',
+  function($scope) {
+    $scope.angle = 0;
+    $scope.rotate = function(angle) {
+      $scope.angle += angle;
+      if (($scope.angle === 360)) {
+        $scope.angle = 0;
+      }
+      if ($scope.angle < 0) {
+        $scope.angle += 360;
+      }
+    }
+  }
+]);
+
+app.directive('rotate', function() {
+  return {
+    restrict: 'A',
+    link: function(scope, element, attrs) {
+      scope.$watch(attrs.degrees, function(rotateDegrees) {
+        var r = 'rotate(' + rotateDegrees + 'deg)';
+        element.css({
+          '-moz-transform': r,
+          '-webkit-transform': r,
+          '-o-transform': r,
+          '-ms-transform': r,
+          transform: r
+        });
+      });
+    }
+  }
+});
+*/
+
+
+/*
+if @media only screen and (orientation: landscape) {
+.leaflet-popup-content {
+  height: 200px;
+  width: auto;
+  margin-left: 10px;
+  margin-right: 10px;
+  overflow: scroll;
+}
+.leaflet-popup-content img {
+  height: 100px;
+  width: auto;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+*/

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)https://oddcobblers.github.io/brandsmap/ -->
+<html class="fa-events-icons-ready"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=yes">
+
+  <title>CG Brands Map</title>
+
+  <!-- jQuery-->
+  <script src="js/lib/jquery.min.js"></script>
+
+  <!-- Leaflet (CSS and JS) -->
+  <link rel="stylesheet" href="css/leaflet.css">
+  <script src="js/lib/leaflet.js"></script>
+
+  <!-- leaflet-providers -->
+  <script src="js/lib/leaflet-providers.js"></script>
+
+  <!-- Tabletop -->
+  <script src="js/lib/tabletop.js"></script>
+
+  <!-- autocomplete-->
+  <link rel="stylesheet" type="text/css" href="css/magicsuggest-min.css">
+  <script type="text/javascript" src="js/lib/magicsuggest.js"></script>
+
+  <!-- Leaflet.awesome-markers -->
+  <link rel="stylesheet" type="text/css" href="css/leaflet.awesome-markers.css">
+  <script type="text/javascript" src="js/lib/leaflet.awesome-markers.js"></script>
+
+  <!-- Markercluster -->
+  <link rel="stylesheet" href="css/MarkerCluster.css">
+  <link rel="stylesheet" href="css/MarkerCluster.Default.css">
+  <script type="text/javascript" src="js/lib/leaflet.markercluster.js"></script>
+
+  <!-- image slider-->
+  <link rel="stylesheet" href="css/bjqs.css">
+  <script type="text/javascript" src="js/lib//bjqs-1.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Locate Control -->
+  <link rel="stylesheet" href="css/L.Control.Locate.min.css">
+  <script src="js/lib/L.Control.Locate.min.js"></script>
+
+  <!-- jQuery-CSV -->
+  <script src="js/lib/jquery.csv-0.71.min.js"></script>
+
+  <!-- Custom style sheet -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <!-- Layer Support for Marker Cluster -->
+  <script src="js/lib/leaflet.markercluster.layersupport.js"></script>
+
+  <!-- DataTables -->
+  <script src="js/lib/jquery.dataTables.min.js"></script>
+  <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+
+  <!-- Material Icons -->
+  <link href="css/icon" rel="stylesheet">
+
+  <script type="text/javascript" src="js/lib/palette.js"></script>
+  <script type="text/javascript" src="js/lib/polylabel.js"></script>
+
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
+</head>
+
+<body>
+
+  <div class="loader" style="">
+	<h1></h1>
+  </div>
+
+  <div class="search_container">
+	<input  style="width: 157px"; id="ms_search_layer">
+  </div>
+
+
+  <div id="map"> </div>
+  <div class="filter">
+	<!--<h4 class="filter_container_title">Filter</h4> -->
+	<div class="filter_container">
+	  <div>
+		  <div class="group_title">
+			<p>
+				<input type="checkbox" value="price_range" id="cb_price_range" name="cb_price_range"/>
+				<label for="cb_price_range">Price Range<i class="fa fa-caret-down"></i></label>
+			</p>
+		  </div>
+		  <div class="group_elem group_pr">
+			<label class="container">$
+			  <input type="checkbox" id="pr$$" name="checkbox_price_range" value="$" />
+			  <span class="checkmark"></span>
+			</label>
+			<label class="container">$$
+			  <input type="checkbox" id="pr$$$" name="checkbox_price_range" value="$$" />
+			  <span class="checkmark"></span>
+			</label>
+			<label class="container">$$$
+			  <input type="checkbox" id="pr$$$$" name="checkbox_price_range" value="$$$" />
+			  <span class="checkmark"></span>
+			</label>
+			<label class="container">$$$$
+			  <input type="checkbox" id="pr$$$$$" name="checkbox_price_range" value="$$$$" />
+			  <span class="checkmark"></span>
+			</label>
+
+		  </div>
+	  </div>
+	  <div>
+		<div class="group_title">
+			<p><input type="checkbox" value="collection" name="cb_collection" id="cb_collection"/>
+			<label for="cb_collection">Collection<i class="fa fa-caret-down fa_c" ></i></label></p>
+		</div>
+		<div class="group_elem group_col">
+
+			<label class="container">Artisanal
+			  <input type="checkbox" id="col_Artisanal" name="checkbox_collection" value="Artisanal" />
+			  <span class="checkmark"></span>
+			</label>
+			<label class="container">Athletic
+			  <input type="checkbox" id="col_Athletic" name="checkbox_collection" value="Athletic" />
+			  <span class="checkmark"></span>
+			</label>
+			<label class="container">Casual
+			  <input type="checkbox" id="col_Casual" name="checkbox_collection" value="Casual" />
+			  <span class="checkmark"></span>
+			</label>
+			<label class="container">Innovative
+			  <input type="checkbox" id="col_Innovative" name="checkbox_collection" value="Innovative" />
+			  <span class="checkmark"></span>
+			</label>
+			<label class="container">Minimal
+			  <input type="checkbox" id="col_Minimal" name="checkbox_collection" value="Minimal" />
+			  <span class="checkmark"></span>
+			</label>
+			<label class="container">Retro
+			  <input type="checkbox" id="col_Retro" name="checkbox_collection" value="Retro" />
+			  <span class="checkmark"></span>
+			</label>
+			<label class="container">Slip-on
+			  <input type="checkbox" id="col_Slip-on" name="checkbox_collection" value="Slip-on" />
+			  <span class="checkmark"></span>
+			</label>
+
+		</div>
+	  </div>
+	  <div>
+		<div class="group_title">
+			<p><input type="checkbox" value="ships_to" id="cb_ships_to" name="cb_ships_to"/>
+			<label for="cb_ships_to">Shipping<i class="fa fa-caret-down"></i></label></p>
+		</div>
+		<div class="group_elem group_sh">
+
+			<label class="container">Worldwide
+			  <input type="checkbox" id="sh_Worldwide" name="checkbox_shipment" value="Worldwide" />
+			  <span class="checkmark"></span>
+			</label>
+			<label class="container">National
+			  <input type="checkbox" id="sh_National" name="checkbox_shipment" value="National" />
+			  <span class="checkmark"></span>
+			</label>
+			<label class="container">Regional
+			  <input type="checkbox" id="sh_Regional" name="checkbox_shipment" value="Regional" />
+			  <span class="checkmark"></span>
+			</label>
+
+		</div>
+	  </div>
+	  <p class="msg_no_records">No matches!</p>
+	  <button id='clearFilter' class='button'>Reset</button>
+
+	</div>
+  </div>
+
+  <script type="text/javascript">
+  var map = L.map('map', {
+        center: [20, 0],
+        zoom: 2,
+        maxZoom:17, minZoom:2,
+        attributionControl: false,
+        });
+  </script>
+
+
+
+<!--<footer>
+	<p>Developed by: <a target="_blank" href="https://farazahmed95.github.io/site/">Faraz Ahmed</a> </p>
+</footer>
+-->
+
+  <script type="text/javascript" src="js/google-doc-url.js"></script>
+  <script type="text/javascript" src="js/constants.js"></script>
+  <script type="text/javascript" src="js/procsv.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+
+</body>
+</html>
